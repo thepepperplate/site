@@ -91,37 +91,55 @@
 	            </div>
 						</div>
 					</div>
-          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSePDFBuMv98SNNLv31h8PZqJEVqVxZg79ZXynLcN5bEGTsQgw/viewform?embedded=true" width="640" height="943" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-					<!--div class="col-md-1"></div>
+         
+					<div class="col-md-1"></div>
           <div class="col-md-6 ftco-animate">
-            <form action="#" class="contact-form">
+           
+            <form method="post" autocomplete="off" name="google-sheet">
             	<div class="row">
             		<div class="col-md-6">
 	                <div class="form-group">
-	                  <input type="text" class="form-control" placeholder="Your Name">
+                        <input type="text" name="Name" class="form-control" placeholder="Your Name *"  required=""/>
 	                </div>
                 </div>
                 <div class="col-md-6">
 	                <div class="form-group">
-	                  <input type="text" class="form-control" placeholder="Your Email">
+                        <input type="text" name="Email" class="form-control" placeholder="Your Email *" required=""/>
 	                </div>
 	                </div>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject">
+                <input type="number" name="Phone" class="form-control" placeholder="Your Contact Number *"  required=""/>
               </div>
               <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                <input type="text" name="Message" class="form-control" placeholder="Your Message  *"  required=""/>
               </div>
+              <!--div class="form-group">
+                <textarea name="" id="" cols="30" rows="7" class="form-control" type="text" name="Message" placeholder="Your Message *"  required=""></textarea>
+              </div-->
               <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                <input type="submit" value="Submit" name="Submit" class="btn btn-primary py-3 px-5">
               </div>
             </form>
           </div>
-        </div-->
+        </div>
       </div>
+     
     </section>
+    <script type="text/javascript">
 
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxlMs7BimnaKJjvJfAb8ej1hCmVajrU4pJPTXwB288l2ZoZsARY74tYsyBMbjQbkXeExA/exec'
+              const form = document.forms['google-sheet']
+            
+              form.addEventListener('submit', e => {
+                e.preventDefault()
+                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                  .then(response => alert("You have successfully submitted."))
+                  .catch(error => console.error('Error!', error.message))
+              })
+    </script>
+    
     
 
    
@@ -131,8 +149,8 @@
         <div class="row mb-5">
           <div class="col-lg-6 col-md-6 mb-5 mb-md-5">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">About Us</h2>
-              <p>The Pepper Plate is a cloud Kitchen concept arising out of our passion for cooking.</p>
+              <h2 class="ftco-heading-2">Our Timing</h2>
+              <p>Sunday-Saturday | 10:00am - 10:00pm</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -140,33 +158,7 @@
               </ul>
             </div>
           </div>
-          <!--div class="col-lg-4 col-md-6 mb-5 mb-md-5">
-            <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Recent Blog</h2>
-              <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
-                <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> Sept 15, 2018</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                  </div>
-                </div>
-              </div>
-              <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
-                <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
-                  <div class="meta">
-                    <div><a href="#"><span class="icon-calendar"></span> Sept 15, 2018</a></div>
-                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div-->
+          
           <div class="col-lg-2 col-md-4 mb-5 mb-md-5">
              <div class="ftco-footer-widget mb-4 ml-md-4">
               <h2 class="ftco-heading-2">Services</h2>
@@ -191,14 +183,7 @@
             </div>
           </div>
         </div>
-        <!--div class="row">
-          <div class="col-md-12 text-center">
-
-            <p Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. >
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  < Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. ></p>
-          </div>
-        </div-->
+       
       </div>
     </footer>
   
